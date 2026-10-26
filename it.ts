@@ -2,12 +2,12 @@
 //Joshua Dalton
 //IT help desk
 
-interface TicketInfo {
+interface TicketInfo { //interface
     id: number;
     issue: string;
 }
 
-class Ticket implements TicketInfo {
+class Ticket implements TicketInfo { //creates ticket class
     public id: number;
     public issue: string;
     private status: string;
@@ -40,7 +40,7 @@ class Ticket implements TicketInfo {
     }
 }
 
-class HelpDeskTicket extends Ticket {
+class HelpDeskTicket extends Ticket { //inherits Ticket
     private priority: string;
     private technician: string;
 
@@ -60,7 +60,7 @@ class HelpDeskTicket extends Ticket {
     }
 }
 
-class HelpDesk {
+class HelpDesk { //manages help desk tickets
     private tickets: HelpDeskTicket[];
 
     constructor(tickets: HelpDeskTicket[]) {
@@ -116,7 +116,7 @@ console.log("");
 console.log("ALL TICKETS");
 helpdesk.showTickets();
 
-console.log("UPDATING TICKETS");
+console.log("UPDATING TICKETS"); //update and resolve tickets
 ticket2.ticketStatus = "In Progress";
 HelpDesk.resolveTicket(ticket1);
 HelpDesk.resolveTicket(ticket4);
