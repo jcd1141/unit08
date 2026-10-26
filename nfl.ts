@@ -66,6 +66,7 @@ class Season {
         this.teams = teams;
     }
 
+    //simulates a game between two teams
     static playGame(team1: NFLTeam, team2: NFLTeam): void {
         const score1 = Math.floor(Math.random() * 35) + Math.floor(team1.teamRating / 10);
         const score2 = Math.floor(Math.random() * 35) + Math.floor(team2.teamRating / 10);
@@ -80,7 +81,7 @@ class Season {
             team2.addWin();
             team1.addLoss();
             console.log("Winner: " + team2.name);
-        } else {
+        } else { //OT
             if (Math.random() < 0.5) {
                 team1.addWin();
                 team2.addLoss();
@@ -104,7 +105,7 @@ class Season {
             team.showTeam();
         }
     }
-
+    //play team against other teams
     simulateSeason(): void {
         for (let i = 0; i < this.teams.length; i++) {
             for (let j = i + 1; j < this.teams.length; j++) {
@@ -113,7 +114,7 @@ class Season {
         }
     }
 }
-
+//create AFC east
 const patriots = new NFLTeam("New England Patriots", 85, "AFC East");
 const bills = new NFLTeam("Buffalo Bills", 90, "AFC East");
 const dolphins = new NFLTeam("Miami Dolphins", 78, "AFC East");
